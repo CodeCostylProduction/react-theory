@@ -25,7 +25,7 @@ class App extends Component {
         <div style = {DivStyle}>
           <h1>{this.state.PageTitle}</h1>
 
-            <button onClick={}>Change title</button>
+            <button onClick={this.changeTitleHandler}>Change title</button>
 
             <Car name={cars[0].name} year={cars[0].year}/>
             <Car name={cars[1].name} year={cars[1].year}/>
