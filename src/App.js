@@ -27,28 +27,21 @@ class App extends Component {
     const DivStyle = {
       textAlign: 'center'
     }
-    const cars = this.state.cars
     return (
         <div style = {DivStyle}>
           <h1>{this.state.PageTitle}</h1>
             <input type="text" onChange={this.handleTitle}/>
             <button onClick={this.changeTitleHandler.bind(this, 'Changed!')}>Change title</button>
-
-            <Car
-                name={cars[0].name}
-                year={cars[0].year}
-                onChangeTitle={this.changeTitleHandler.bind(this, cars[0].name)}
-            />
-            <Car
-                name={cars[1].name}
-                year={cars[1].year}
-                onChangeTitle={() => this.changeTitleHandler(cars[1].name)}
-            />
-            <Car
-                name={cars[2].name}
-                year={cars[2].year}
-                onChangeTitle={() => this.changeTitleHandler(cars[2].name)}
-            />
+            {this.state.cars.map((el, index) => {
+                return (
+                    <Car
+                    key = {index}
+                    name = {el.name}
+                    year = {el.year}
+                    onChangeTitle={this.changeTitleHandler.bind(this, el.name)}
+                    />
+                )
+            })}
         </div>
     );
   }
