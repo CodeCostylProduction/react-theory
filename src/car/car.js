@@ -1,12 +1,8 @@
 import React from 'react'
+import './car.css'
 
 export default (props) => (
-    <div style={{
-        border: '1px solid #ccc',
-        width: '400px',
-        display: 'block',
-        margin: '0 auto 10px auto'
-    }}>
+    <div className="Car">
         <h3>Car name: {props.name}</h3>
         <p>Year: <strong>{props.year}</strong></p>
         <input type="text" onChange={props.onChangeName} value={props.name}/>
