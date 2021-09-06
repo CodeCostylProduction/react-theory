@@ -59,7 +59,8 @@ class App extends Component {
 
     return (
         <div style = {DivStyle}>
-          <h1>{this.state.PageTitle}</h1>
+          {/*<h1>{this.state.PageTitle}</h1>*/}
+          <h1>{this.props.title}</h1>
             <button style = {{
                 marginBottom: '10px'
             }}
