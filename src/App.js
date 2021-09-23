@@ -3,6 +3,7 @@ import './App.css';
 import Car from './car/car.js';
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import Counter from "./Counter/Counter";
+import index from "radium/es/plugins";
 
 class App extends Component {
 
@@ -12,8 +13,8 @@ class App extends Component {
         this.state = {
             cars: [
                 {name: 'Ford', year: 2016},
-                // {name: 'Mazda', year: 2018},
-                // {name: 'Toyota', year: 2017}
+                {name: 'Mazda', year: 2018},
+                {name: 'Toyota', year: 2017}
             ],
             PageTitle: 'Hello world',
             showCars: false
@@ -62,6 +63,7 @@ class App extends Component {
                   <Car
                       name = {el.name}
                       year = {el.year}
+                      index={index}
                       onDelete={this.deleteHandler.bind(this, index)}
                       onChangeName={event => this.onChangeName(event.target.value, index)}
                   />
