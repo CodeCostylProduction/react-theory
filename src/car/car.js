@@ -1,5 +1,6 @@
 import React from 'react'
-import car from './Car.css'
+import './Car.css'
+import propTypes from 'prop-types'
 import withClass from "../hoc/withClass";
 
 class Car extends React.Component {
@@ -12,8 +13,7 @@ class Car extends React.Component {
             if (this.props.name.length > 4) {
                 inputClasses.push('bold')
             }
-        }
-        else {
+        } else {
             inputClasses.push('red')
         }
 
@@ -32,5 +32,12 @@ class Car extends React.Component {
         )
     }
 }
+
+ Car.propTypes = {
+     name: propTypes.string,
+     year: propTypes.number,
+     onChangeName: propTypes.func,
+     onDelete: propTypes.func
+    }
 
 export default withClass(Car, 'Car')
