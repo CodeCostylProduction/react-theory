@@ -89,7 +89,7 @@ class App extends Component {
                     onClick={this.toggleCarsHandler}>Toggle Cars</button>
             <button onClick={() => this.setState({clicked: !this.state.clicked})}>Change clicked</button>
             <div style={{
-                paddingTop: '20px'
+                paddingTop: '30px'
             }}>
             { cars }
             </div>
