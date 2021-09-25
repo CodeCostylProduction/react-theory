@@ -3,7 +3,8 @@ import './App.css';
 import Car from './car/car.js';
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import Counter from "./Counter/Counter";
-import index from "radium/es/plugins";
+
+export const ClickedContext = React.createContext(false)
 
 class App extends Component {
 
@@ -11,6 +12,7 @@ class App extends Component {
         super(props);
 
         this.state = {
+            clicked: false,
             cars: [
                 {name: 'Ford', year: 2016},
                 {name: 'Mazda', year: 2018},
@@ -78,11 +80,14 @@ class App extends Component {
         <div style = {DivStyle}>
           {/*<h1>{this.state.PageTitle}</h1>*/}
           <h1>{this.props.title}</h1>
-            <Counter/>
+            <ClickedContext.Provider value={this.state.clicked}>
+                <Counter/>
+            </ClickedContext.Provider>
             <button style = {{
                 marginBottom: '10px'
             }}
                     onClick={this.toggleCarsHandler}>Toggle Cars</button>
+            <button onClick={() => this.setState({clicked: !this.state.clicked})}>Change clicked</button>
             <div style={{
                 paddingTop: '20px'
             }}>
